@@ -4,16 +4,16 @@ import { todoReducer } from './todoReducer';
 
 const initialState =[];
 const init = () => {
-    return //JSON.parse(localStorage.getItem('todos')) || [];
+    return JSON.parse(localStorage.getItem('todos')) || [];
 
 }
 export const useTodos = () => {
     const [todos, dispatchTodo] = useReducer(todoReducer, initialState,init);
     
-    // useEffect(() => {
-    //     localStorage.setItem('todos', JSON.stringify(todos) );
+     useEffect(() => {
+         localStorage.setItem('todos', JSON.stringify(todos) );
     
-    //   },[todos])
+       },[todos])
 
       const handleNewTodo = (todo) => {
         const action = {
